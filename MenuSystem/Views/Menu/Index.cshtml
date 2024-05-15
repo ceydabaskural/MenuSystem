@@ -1,0 +1,59 @@
+﻿@model List<MenuPropModel>
+
+@{
+    ViewData["Title"] = "Menüler";
+}
+
+<h1>Menüler</h1>
+
+<p>
+    <a asp-action="Create">Yeni Menü Oluştur</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().MenuName)
+            </th>
+            @* <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().CategoryId)
+            </th *@
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().Details)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().ImageUrl)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MenuName)
+                </td>
+                @* <td>
+                    @Html.DisplayFor(modelItem => item.CategoryName)
+                </td> *@
+                <td>
+                    @Html.DisplayFor(modelItem => item.Details)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ImageUrl)
+                </td>
+                <td>
+                    <a class="text-primary " asp-action="Edit" asp-route-id="@item.MenuId">güncelle</a>/
+                    <a class="text-primary" asp-action="Delete" asp-route-id="@item.MenuId">sil</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

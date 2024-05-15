@@ -1,0 +1,35 @@
+﻿@model UrunYonetimiModel
+
+@{
+    ViewData["Title"] = "Menü Sistemi";
+}
+
+<h1>@Model.Category.CategoryName Ürünleri Yönetimi</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Adı</th>
+            <th>Detay</th>
+            <th>Fiyat</th>
+            <th>Görsel</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var menu in Model.Menus)
+        {
+            <tr>
+                <td>@menu.MenuName</td>
+                <td>@menu.Details</td>
+                <td>@menu.Price TL</td>
+                <td>@menu.ImageUrl</td>
+                <td>
+                    <a class="text-primary " asp-action="Edit" asp-route-id="@menu.MenuId">güncelle</a>/
+                    <a class="text-primary" asp-action="Delete" asp-route-id="@menu.MenuId">sil</a>
+            </tr>
+
+        }
+    </tbody>
+</table>
+
+
