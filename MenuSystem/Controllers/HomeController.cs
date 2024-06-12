@@ -73,9 +73,5 @@ namespace MenuSistemi.Controllers
 
             return menu;
         }
-
-
     }
 }
-
-//select m.*, c.CategoryName as CategoryName from dbo.Menus as m inner join dbo.Categories as c on c.CategoryId=m.CategoryId"

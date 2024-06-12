@@ -107,22 +107,20 @@ namespace MenuSystem.Controllers
             DataTable dt = new DataTable();
             da.Fill(dt);
 
-            
-            for (int i = 0; i <= dt.Rows.Count; i++)
-            {
-                Menu menu = new Menu();
-                {
-                    menu.MenuId = Convert.ToInt32(dt.Rows[0]["MenuId"]);
-                    menu.CategoryId = Convert.ToInt32(dt.Rows[0]["CategoryId"]);
-                    menu.Details = dt.Rows[0]["Details"].ToString();
-                    menu.MenuName = dt.Rows[0]["MenuName"].ToString();
-                    menu.Price = Convert.ToDecimal(dt.Rows[0]["Price"]);
-                    menu.ImageUrl = dt.Rows[0]["ImageUrl"].ToString();
-                }
-            }
 
-                return View(Menu);
-           
+
+            Menu menu = new Menu();
+            {
+                menu.MenuId = Convert.ToInt32(dt.Rows[0]["MenuId"]);
+                menu.CategoryId = Convert.ToInt32(dt.Rows[0]["CategoryId"]);
+                menu.Details = dt.Rows[0]["Details"].ToString();
+                menu.MenuName = dt.Rows[0]["MenuName"].ToString();
+                menu.Price = Convert.ToDecimal(dt.Rows[0]["Price"]);
+                menu.ImageUrl = dt.Rows[0]["ImageUrl"].ToString();
+            }
+            return menu;
+
+
         }
 
 
@@ -148,11 +146,11 @@ namespace MenuSystem.Controllers
         }
 
 
-        public IActionResult Edit(int menuId)
+        public IActionResult Edit(int id)
         {
             ViewBag.KategoriListesi = GetCategories();
 
-            return View(GetMenu(menuId));
+            return View(GetMenu(id));
         }
 
         [HttpPost]

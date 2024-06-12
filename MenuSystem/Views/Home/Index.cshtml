@@ -4,18 +4,18 @@
     ViewData["Title"] = "Anasayfa";
 }
 
-<table class="table table-striped ">
-
+<table class ="table table-striped" style="border-collapse">
+    
     <tbody>
         @foreach (var category in (List<Category>)ViewBag.Categories)
         {
-            int kayitSayisi = 0;
+            int kayitSayisi =0;
 
             @foreach (var menu in (List<Menu>)ViewBag.Menus)
             {
                 kayitSayisi++;
             }
-            <tr style="background-color:dodgerblue ; font-weight:bold ; border: solid black 2px;">
+            <tr style="background-color:cornflowerblue ; font-weight:bold ; border: solid black 2px;">
                 <td>@category.CategoryName (@kayitSayisi ürün)</td>
                 <td>@*kolonların mavi gözükmesi için ekledim*@</td>
                 <td>@*kolonların mavi gözükmesi için ekledim*@</td>
@@ -25,17 +25,18 @@
             {
                 <tr style="border:solid 1px">
                     <td width="5px">
-                        <img src="#" width="100" height="50" class="img-thumbnail">
-                        </td>
-                    <td width="300px">
+                        <img src="#" width="80px" height="50" class="img-thumbnail">
+                    </td>
+                    <td width="300px" >
                         <b>@menu.MenuName</b> <br />
                         @menu.Details
                     </td>
-                    <td width="400px">@menu.Price TL</td>
+                    <td width="400px">@menu.Price.ToString("n0") TL</td>
                 </tr>
             }
-
         }
-
     </tbody>
 </table>
+
+
+

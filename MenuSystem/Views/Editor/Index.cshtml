@@ -7,32 +7,23 @@
 <h4>Kategoriler</h4>
 
 <p>
-    <a asp-action="Create">Kategori Ekle</a>
+    <a asp-action="Create">Kategori Ekle</a> /
+    <a asp-controller="Menu" asp-action="Create">Menü Ekle</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-             <th>
-                @*@Html.DisplayNameFor(model => model.FirstOrDefault().CategoryName) *@
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) 
-{
+<table class="table table-striped " style="border:solid">
+    @foreach (var item in Model)
+    {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.CategoryName)
             </td>
-            <td>
-               <a class="text-primary " asp-action="Edit" asp-route-id="@item.CategoryId">güncelle</a>
-               <a class="text-primary" asp-action="Delete" asp-route-id="@item.CategoryId">sil</a>
-               <a class="text-primary" asp-controller="UrunYonetimi" asp-action="Index" asp-route-id="@item.CategoryId">ürünleri yönet</a>
+            <td >
+                <a class="text-primary" asp-action="Edit" asp-route-id="@item.CategoryId">güncelle</a>
+                <a class="text-primary" asp-action="Delete" asp-route-id="@item.CategoryId">sil</a>
+                <a class="text-primary" asp-controller="UrunYonetimi" asp-action="Index" asp-route-id="@item.CategoryId">ürünleri yönet</a>
             </td>
         </tr>
-}
-        
-    </tbody>
+    }
+
 </table>
 
